@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        
+        .logo {
+            width: 100px;
+            height: 80px;
+            background-image: url('IMAGENES/logo22.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: transparent;
+            border-radius: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        nav a:hover {
+            color: #f0d9b5;
+        }
+
+        
+        .hero {
+              position: relative;
+              min-height: 100vh;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              overflow: hidden;
+              padding: 100px 20px 150px;
+        }
+
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('IMAGENES/bonitasfrutas.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: #d4b896;
+            filter: brightness(0.8);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.6);
+        }
+
+        
+        .services {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .service-bubble {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .service-bubble:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            background-color: #f0f0f0;
+        }
+
+        .icon-bebe {
+            background-image: url('IMAGENES/bebe.jpg');
+        }
+
+        .icon-ninos {
+            background-image: url('IMAGENES/nino.jpg');
+        }
+
+        .icon-adolescentes {
+            background-image: url('IMAGENES/oncologica.jpg'); 
+        }
+
+        .icon-adultos {
+            background-image: url('IMAGENES/embarazo.jpg'); 
+        }
+
+        .icon-deportistas {
+            background-image: url('IMAGENES/deportista.jpg');
+        }
+
+        .service-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-text strong {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .service-text span {
+            font-size: 12px;
+            color: #666;
+        }
+
+
+           @media (max-width: 1024px) {
+            header {
+                padding: 15px 30px;
+            }
+
+            nav {
+                gap: 20px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .services {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+                background: rgba(0,0,0,0.6);
+            }
+
+            nav {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+                font-size: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+                padding: 5px 10px;
+                background: rgba(255,255,255,0.1);
+                border-radius: 20px;
+            }
+
+            .hero-content {
+                padding: 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                margin-bottom: 25px;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .services {
+                position: relative;
+                bottom: auto;
+                margin-top: 30px;
+                gap: 10px;
+                flex-direction: column;
+                width: 90%;
+                max-width: 400px;
+            }
+
+            .service-bubble {
+                padding: 12px 20px;
+                gap: 12px;
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .service-icon {
+                width: 45px;
+                height: 45px;
+                flex-shrink: 0;
+            }
+
+            .service-text strong {
+                font-size: 13px;
+            }
+
+            .service-text span {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            header {
+                padding: 10px 15px;
+            }
+
+            nav a {
+                font-size: 11px;
+                padding: 4px 8px;
+            }
+
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+
+            .cta-button {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+
+            .service-bubble {
+                padding: 10px 15px;
+            }
+
+            .service-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .service-text strong {
+                font-size: 12px;
+            }
+
+            .service-text span {
+                font-size: 10px;
+            }
+        }
+
+ 

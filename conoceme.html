@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conóceme - Bite & Balance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styleco.css">
+    <link rel="shortcut icon" href="IMAGENES/logo22.png" type="image/x-icon">
+</head>
+<body>
+  
+
+    <section class="conoceme-section" id="conoceme">
+        <!-- Section Header -->
+        <h1 class="section-title">Quiénes Somos</h1>
+        <p class="section-subtitle">
+            Somos un grupo de desarrolladores los cuales creamos este espacio digital para compartir información 
+            sobre nutrición y bienestar de manera clara y accesible,
+            ayudándote a encontrar tu equilibrio de forma sencilla.
+        </p>
+          
+
+        <!-- Team Members -->
+        <div class="team-container">
+            <div class="team-card">
+                <div class="profile-photo photo-1"></div>
+                <h3 class="team-name">Nayely Núñez</h3>
+                <p class="team-role">Desarrolladora</p>
+                <p class="team-description">
+                    Mi tarea fue desarrollar la página de inicio y el blog de nutrición, 
+                    asegurando que la información sea clara y accesible para todos los usuarios.
+                </p>
+            </div>
+
+            <div class="team-card">
+                <div class="profile-photo photo-2"></div>
+                <h3 class="team-name">Juan Oliver Ramos</h3>
+                <p class="team-role">Desarrollador</p>
+                <p class="team-description">
+                    Fuí el encargado de desarrollar la sección de recomendaciones del nutriólogo,
+                     para que los usuarios puedan encontrar fácilmente profesionales de la salud.
+                </p>
+            </div>
+
+            <div class="team-card">
+                <div class="profile-photo photo-3"></div>
+                <h3 class="team-name">Arianna Reyes</h3>
+                <p class="team-role">Desarrolladora</p>
+                <p class="team-description">
+                    Desarrollé el acceso al especialista y la sección de aplicaciones recomendadas, 
+                    facilitando el uso del sitio y el aprendizaje sobre nutrición.
+                </p>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-section">
+            <h2 class="form-title">¿Tienes alguna pregunta?</h2>
+            <p class="form-subtitle">Nos encantaría saber de ti. Completa el formulario y te responderemos pronto.</p>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo" placeholder="tu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    <i class="fas fa-paper-plane"></i> Enviar mensaje
+                </button>
+            </form>
+        </div>
+
+        <!-- Social Media -->
+        <div class="social-section">
+            <h3 class="social-title">Síguenos en nuestras redes</h3>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank" class="social-icon social-facebook" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/nayely.nunezz/" target="_blank" class="social-icon social-instagram" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="social-icon social-linkedin" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="social-icon social-twitter" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://wa.me/+18293495113" target="_blank" class="social-icon social-whatsapp" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="social-icon social-youtube" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+<script>
+       
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitButton = this.querySelector('.submit-button');
+            const originalText = submitButton.innerHTML;
+            
+            
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitButton.disabled = true;
+            
+            
+            fetch('enviar_contacto.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('¡Mensaje enviado con éxito! Te responderemos pronto.');
+                    this.reset();
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                alert('Hubo un error al enviar el mensaje. Por favor intenta de nuevo.');
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
